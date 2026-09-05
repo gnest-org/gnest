@@ -1,4 +1,4 @@
-import { Role } from '..';
+import { Role } from './enum/Role';
 import { AppDataSource } from '../../config';
 import {
   BeforeInsert,
@@ -23,7 +23,7 @@ export class User {
   @Column({ type: "varchar", length: 255 })
   password: string;
 
-  @Column({ type: 'enum', enum: Role, default: 'USER', enumName: 'Role' })
+  @Column({ type: 'enum', enum: Role, default: 'USER', enumName: 'roles' })
   role: Role;
 
   @CreateDateColumn({ type: 'timestamp' })

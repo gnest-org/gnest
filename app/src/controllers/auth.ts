@@ -14,7 +14,7 @@ const registerUserValidation = Joi.object({
 });
 
 @Controller("/auth")
-class AuthController {
+export class AuthController {
   @Route("post", "/register")
   @Validate(registerUserValidation)
   async register(req: Request, res: Response) {
@@ -51,5 +51,3 @@ class AuthController {
     return res.status(200).json(req.user);
   }
 }
-
-export default AuthController;

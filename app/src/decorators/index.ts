@@ -1,11 +1,4 @@
-import { Route } from './route';
-import { Validate } from './validate';
-import { Controller } from './controller';
-import TypeORM from './typeORM';
-
-export {
-  Route,
-  TypeORM,
-  Validate,
-  Controller,
-};
+export * from './route';
+export * from './validate';
+export * from './controller';
+export * from './typeORM';

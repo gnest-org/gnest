@@ -1,13 +1,12 @@
 {
 	"name": "app",
-	"version": "0.0.1",
-	"description": "This is nestjs application deploye in aws sam app",
+	"version": "1.0.0",
+	"description": "This is express-js application deploy in aws sam app",
 	"main": "app.js",
-	"repository": "https://github.com/gnest-org/tree/express",
-	"author": "Daris",
 	"private": true,
 	"license": "MIT",
 	"scripts": {
+		"start:dev": "nodemon app.local.ts",
 		"build": "node esbuild.config.js",
 		"unit": "jest",
 		"lint": "eslint '*.ts' --quiet --fix",

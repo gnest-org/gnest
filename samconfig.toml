@@ -4,7 +4,7 @@ version = 0.1
 
 [default]
 [default.global.parameters]
-stack_name = "gnest-app"
+stack_name = "gbee-app"
 
 [default.build]
 build_dir = ".aws-sam/build"

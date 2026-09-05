@@ -12,7 +12,6 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "emitDecoratorMetadata": true
-
   },
   "include": ["src/**/*.ts", "test/**/*.ts", "lambda.ts", "app.local.ts"],
   "exclude": ["node_modules/"]

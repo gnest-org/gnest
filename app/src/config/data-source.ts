@@ -1,14 +1,11 @@
 import { DataSource } from 'typeorm';
 import { postgres } from './config';
-import { User } from '../models/entities/User';
 
-const AppDataSource = new DataSource({
+export const AppDataSource = new DataSource({
   type: 'postgres',
   url: postgres.pgUrl,
-  entities: [User],
   synchronize: true,
-  // migrations: ["../database/migrations/*.{ts,js}"],
-  // logging: ['query']
+  entities: ["src/models/entities/*{.ts,.js}"],
+  migrations: ["src/database/migrations/*{.ts,.js}"],
+  subscribers: [],
 });
-
-export default AppDataSource;

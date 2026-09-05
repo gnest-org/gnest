@@ -1,12 +1,4 @@
-import { User } from "./entities/User";
-import Role from "./entities/enum/Role";
-import { RouteHandler } from './types/routeHandler';
-import { CreateUser, GetUser } from './types/userType';
-
-export {
-  User,
-  Role,
-  GetUser,
-  CreateUser,
-  RouteHandler,
-};
+export * from "./entities/User";
+export * from "./entities/enum/Role";
+export * from './types/routeHandler';
+export * from './types/userType';

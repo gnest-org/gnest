@@ -1,5 +1,4 @@
-import { DataSource, DeepPartial, EntityManager, ObjectLiteral, Repository } from 'typeorm';
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
+import { DataSource, EntityManager, ObjectLiteral } from 'typeorm';
 import { AppDataSource } from '../config';
 
 export async function GetById(entityName: string, id: number) {
@@ -138,7 +137,7 @@ export function Transaction<T extends ObjectLiteral>(
   };
 }
 
-const TypeORM = {
+export const TypeORM = {
   Query,
   GetAll,
   Update,
@@ -147,5 +146,3 @@ const TypeORM = {
   GetById,
   Transaction
 };
-
-export default TypeORM;

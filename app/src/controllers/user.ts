@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import { Controller, Route } from "../decorators";
-import { CreateUser, Role } from "../models";
+import { CreateUser, GetUser, Role } from "../models";
 import { authorize } from "../middleware";
 import { userService } from "../services";
 
 @Controller('/users')
-class UsersController {
+export class UsersController {
   @Route('get', '/get/all', authorize([Role.ADMIN]))
   async getAll(req: Request, res: Response, next: NextFunction) {
     try {
@@ -37,7 +37,8 @@ class UsersController {
     const newUsers = req.body as CreateUser[];
     try {
       const usersCreated = await userService.createUser(newUsers);
-      if (!usersCreated) return res.status(400).json({ message: 'Users creation failed' });
+      if (!usersCreated || usersCreated instanceof Error) 
+        return res.status(400).json({ message: 'Users creation failed' });
       return res.status(200).json(usersCreated);
     } catch (error) {
       logging.error(error);
@@ -87,5 +88,3 @@ class UsersController {
     }
   }
 }
-
-export default UsersController;

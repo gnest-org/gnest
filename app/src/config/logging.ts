@@ -1,4 +1,3 @@
-import { TEST } from './config';
 
 const colours = {
   reset: '\x1b[0m',
@@ -54,63 +53,55 @@ export function getCallingFunction(error: Error) {
 }
 
 export function log(message?: any, ...optionalParams: any[]) {
-  if (!TEST)
     console.log(
-    //   `[${new Date().toLocaleString()}]`,
-    //   colours.fg.magenta,
-    //   '[SERVER-LOG] ',
-    //   colours.reset,
+      colours.fg.magenta,
+      '[SERVER-LOG] ',
+      colours.reset,
       message,
       ...optionalParams
     );
 }
 
 export function info(message?: any, ...optionalParams: any[]) {
-  if (!TEST)
     console.info(
-    //   `[${new Date().toLocaleString()}]`,
-    //   colours.fg.cyan,
-    //   '[INFO]',
-    //   colours.reset,
-    //   colours.bg.green,
-    //   `[${getCallingFunction(new Error())}]`,
-    //   colours.reset,
+      colours.fg.cyan,
+      '[INFO]',
+      colours.reset,
+      colours.bg.green,
+      `[${getCallingFunction(new Error())}]`,
+      colours.reset,
       message,
       ...optionalParams
     );
 }
 
 export function warn(message?: any, ...optionalParams: any[]) {
-  if (!TEST)
     console.warn(
-    //   `[${new Date().toLocaleString()}]`,
-    //   colours.fg.yellow,
-    //   '[WARN]',
-    //   colours.reset,
-    //   colours.bg.green,
-    //   `[${getCallingFunction(new Error())}]`,
-    //   colours.reset,
+      colours.fg.yellow,
+      '[WARN]',
+      colours.reset,
+      colours.bg.green,
+      `[${getCallingFunction(new Error())}]`,
+      colours.reset,
       message,
       ...optionalParams
     );
 }
 
 export function error(message?: any, ...optionalParams: any[]) {
-  if (!TEST)
     console.error(
-    //   `[${new Date().toLocaleString()}]`,
-    //   colours.fg.red,
-    //   '[ERROR]',
-    //   colours.reset,
-    //   colours.bg.green,
-    //   `[${getCallingFunction(new Error())}]`,
-    //   colours.reset,
+      colours.fg.red,
+      '[ERROR]',
+      colours.reset,
+      colours.bg.green,
+      `[${getCallingFunction(new Error())}]`,
+      colours.reset,
       message,
       ...optionalParams
     );
 }
 
-const logging = {
+export const logging = {
   log,
   info,
   warn,
@@ -127,11 +118,9 @@ declare global {
     warn: (message?: any, ...optionalParams: any[]) => void;
     warning: (message?: any, ...optionalParams: any[]) => void;
     error: (message?: any, ...optionalParams: any[]) => void;
-    // getCallingFunction: (error: Error) => string;
+    getCallingFunction: (error: Error) => string;
   };
 }
 
 /** Link the local and global variable */
 globalThis.logging = logging;
-
-export default logging;
